@@ -21,14 +21,6 @@ UniquePtr<T>::UniquePtr(UniquePtr&& ptr)
     ptr._p = nullptr ; // set ptr to nullptr
 }
 
-////////////////////////// Copy constructor ///////////////////////////////
-template<typename T>
-UniquePtr<T>::UniquePtr(const UniquePtr& ptr)
-{
-    _p = new T[ptr.N] ;
-
-}
-
 ///////////////////////// Destructor //////////////////////////////////////
 
 template<typename T>
@@ -46,4 +38,47 @@ T* UniquePtr<T>::get()
 {
     return _p ;
 }
-//////////////////////////// 
+//////////////////////////// operator* ////////////////////////////////////
+template<typename T>
+T& UniquePtr<T>::operator*()
+{
+    return *_p ;
+}
+/*
+/////////////////////////// operator ->  //////////////////////
+template<typename T>
+T* UniquePtr<T>::operator->()
+{
+    return _p ;
+}
+//////////////////////////// release ///////////////////////////////////////
+template<typename T>
+T& UniquePtr<T>::release()
+{
+    T* temp = _p ;
+    _p = nullptr ;
+    return *temp ;
+}
+*/
+//////////////////////////// reset ///////////////////////////////////////
+template<typename T>
+void UniquePtr<T>::reset()
+{
+    delete _p ;
+    _p = nullptr ;
+}
+
+template<typename T>
+T& UniquePtr<T>::reset(T* inp)
+{
+    delete _p ;
+    _p = inp ;
+    return *_p ;
+}
+//////////////////////////// make_unique //////////////////////////////////
+template<typename T>
+T* make_unique(T p)
+{
+    return new T{p} ;
+}
+/////////////////////////// 
