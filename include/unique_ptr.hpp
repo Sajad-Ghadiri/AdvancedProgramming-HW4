@@ -69,11 +69,11 @@ void UniquePtr<T>::reset()
 }
 
 template<typename T>
-T& UniquePtr<T>::reset(T* inp)
+T* UniquePtr<T>::reset(T* inp)
 {
     delete _p ;
     _p = inp ;
-    return *_p ;
+    return _p ;
 }
 ////////////////////////////bool operator ////////////////////////////////
 template<typename T>
