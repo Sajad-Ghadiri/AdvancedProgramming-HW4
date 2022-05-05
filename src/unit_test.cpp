@@ -42,7 +42,7 @@ TEST(HW4Test, TEST4) {
     UniquePtr<std::vector<int>> ptr3{new std::vector<int>{1, 2, 3, 4, 5}};
     EXPECT_EQ((*ptr3)[1], 2);
 }
-/*
+
 TEST(HW4Test, TEST5) {
     UniquePtr<std::string> ptr1{new std::string{"hello world!"}};
     EXPECT_EQ(ptr1->length(), 12);
@@ -65,6 +65,7 @@ TEST(HW4Test, TEST7) {
     EXPECT_EQ(*ptr, "nice job!");
 }
 
+
 TEST(HW4Test, TEST8) {
     UniquePtr<double> ptr{new double{1.567}};
     EXPECT_DOUBLE_EQ(*ptr, 1.567);
@@ -83,7 +84,7 @@ TEST(HW4Test, TEST9) {
     EXPECT_FALSE(ptr);
     delete tmp;
 }
-
+/*
 TEST(HW4Test, TEST10) {
     SharedPtr<int> ptr1{new int{10}};
     EXPECT_EQ(*ptr1.get(), 10);

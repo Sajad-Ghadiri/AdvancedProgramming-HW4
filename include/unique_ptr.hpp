@@ -44,7 +44,7 @@ T& UniquePtr<T>::operator*()
 {
     return *_p ;
 }
-/*
+
 /////////////////////////// operator ->  //////////////////////
 template<typename T>
 T* UniquePtr<T>::operator->()
@@ -53,13 +53,13 @@ T* UniquePtr<T>::operator->()
 }
 //////////////////////////// release ///////////////////////////////////////
 template<typename T>
-T& UniquePtr<T>::release()
+T* UniquePtr<T>::release()
 {
     T* temp = _p ;
     _p = nullptr ;
-    return *temp ;
+    return temp ;
 }
-*/
+
 //////////////////////////// reset ///////////////////////////////////////
 template<typename T>
 void UniquePtr<T>::reset()
@@ -74,6 +74,19 @@ T& UniquePtr<T>::reset(T* inp)
     delete _p ;
     _p = inp ;
     return *_p ;
+}
+////////////////////////////bool operator ////////////////////////////////
+template<typename T>
+UniquePtr<T>::operator bool()
+{
+    if(_p == nullptr)
+    {
+        return false ;
+    }
+    else
+    {
+        return true ;
+    }
 }
 //////////////////////////// make_unique //////////////////////////////////
 template<typename T>
