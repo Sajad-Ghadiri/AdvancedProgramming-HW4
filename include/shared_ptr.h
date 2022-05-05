@@ -5,24 +5,23 @@
 template<typename T>
 class SharedPtr
 {
+
 public:
     
-    SharedPtr(T* N); // constructor
-    SharedPtr(); // default constructor
-    ~SharedPtr(); // destructor 
-    SharedPtr(const SharedPtr& ptr) ; // copy constructor
-
+    SharedPtr(T* N); // Constructor
+    SharedPtr(); // Default constructor
+    ~SharedPtr(); // Destructor 
+    SharedPtr(const SharedPtr& ptr) ; // Copy constructor
 
     T& operator*(); // * operator
     T* operator->(); // -> operator
-    SharedPtr<T>& operator=(const SharedPtr& ptr) ; // assignment operator
+    SharedPtr<T>& operator=(const SharedPtr& ptr) ; // Assign operator
 
-
-    T* get(); // get raw pointer stored in the class
-    void reset(); // reset the pointer to nullptr
-    T* reset(T* inp) ; // reset the pointer and make new pointer by input value
-    int use_count();   // get the number of shared pointers
-    explicit operator bool(); // bool operator
+    T* get(); // Get raw pointer stored in the class
+    void reset(); // Reset the pointer to nullptr
+    T* reset(T* inp) ; // Reset the pointer and make new pointer by input value
+    int use_count();   // Get the number of shared pointers
+    explicit operator bool(); // Bool operator
 
 private:
 T* _p ;

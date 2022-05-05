@@ -82,11 +82,12 @@ void SharedPtr<T>::reset()
 template<typename T>
 T* SharedPtr<T>::reset(T* inp)
 {
-    delete _p ;
-    _p = inp ;
+    delete _p   ;
+    _p = inp    ;
     *number = 1 ;
-    return _p ;
+    return _p   ;
 }
+
 /////////////////////// use_count /////////////////////////////////////////
 template<typename T>
 int SharedPtr<T>::use_count()
